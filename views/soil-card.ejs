@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/cards.css">
+    <script src="card.js"></script>
+</head>
+
+<body>
+    <!--
+  Please note: this code is in no way ready to be used as is in production on your website. It will need to be adapted to be cross browser compliant & accessible. I just wanted to share how one might go about this effect with CSS & JS and no other dependencies
+-->
+    <div class="container">
+        <a href="/open-card" style="text-decoration: none;">
+            <div class="card-column column-0">
+                <div class="card card-color-0">
+                    <div class="border"></div>
+                    <img src="/images/peat-soil.jpg" />
+                    <h1>peat soil</h1>
+                </div>
+        </a>
+        <a href="/open-card1" style="text-decoration: none;">
+            <div class="card card-color-2">
+                <div class="border"></div>
+                <img src="/images/loam-soil.jpg" />
+                <h1>loam soil</h1>
+            </div>
+            </div>
+        </a>
+        <a href="/open-card2" style="text-decoration: none;">
+            <div class="card-column column-1">
+                <div class="card card-color-1">
+                    <div class="border"></div>
+                    <img src="/images/clay-soil.jpg" />
+                    <h1>clay soil</h1>
+                </div>
+        </a>
+        <a href="/open-card3" style="text-decoration: none;">
+            <div class="card card-color-3">
+                <div class="border"></div>
+                <img src="/images/black-soil.jpg" />
+                <h1>Black soil</h1>
+            </div>
+            </div>
+    </div>
+    </a>
+
+    <div id="cover" class="cover"></div>
+
+    <div id="open-content" class="open-content">
+        <a href="#" id="close-content" class="close-content"><span class="x-1"></span><span class="x-2"></span></a>
+        <img id="open-content-image" src="" />
+        <div class="text" id="open-content-text">
+        </div>
+    </div>
+</body>
+
+</html>

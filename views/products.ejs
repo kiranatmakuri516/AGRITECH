@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        #product_container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+        
+        #product_box {
+            border: 1px solid black;
+            box-shadow: 0 0 10px rgb(12, 215, 29);
+            font-family: 'Roboto Slab', serif;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            margin: 15px;
+            width: 28%;
+            padding-bottom: 10px;
+        }
+        
+        #pro-img {
+            width: 20vw;
+            height: 25vh;
+            margin-top: 15px;
+            box-shadow: 0 0 10px rgb(12, 215, 29);
+        }
+        
+        p {
+            font-size: 20px;
+        }
+        
+        #crop-name {
+            font-weight: 600;
+        }
+        
+        input {
+            float: right;
+            margin-right: 5px;
+        }
+        
+        #search {
+            margin-top: 10px;
+        }
+        
+        .card {
+            /* border: 1px solid green; */
+            height: 270px;
+            width: 250px;
+            border-radius: 10px;
+            box-shadow: 0 0 2px black;
+            margin: 10px;
+        }
+        
+        .card .img {
+            position: relative;
+            height: 55%;
+            /* border: 1px solid red; */
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .card .img img {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .card .text {
+            position: relative;
+            height: 45%;
+            /* border: 1px solid red; */
+            border-radius: 0 0 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <%- include("header.ejs") -%>
+        <script>
+            document.body.style.zoom = "99%";
+        </script>
+        <div class="home">
+            <div class="mx-auto"></div>
+            <div class="hleft">
+                <div class="text">
+                    <h3>Welcome Back,</h3>
+                    <h1>
+                        <%= vinee.name %>
+                    </h1>
+                    <p>
+                        All Your Dreams Come True
+                    </p>
+                    <div class="btns">
+                        <a href="/profile">
+                            My Profile
+                        </a>
+                        <a href="/tools">
+                            My Tools
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <img src="/images/farmer-black.png" alt="">
+            </div>
+            <div class="mx-auto"></div>
+            <div class="hright">
+                <h1>Weather Report</h1>
+                <img src="/images/suncloud.png" alt="">
+                <br>
+                <div class="ppp">
+                    <div class="rl">
+                        <i class="fa-sharp fa-solid fa-location-dot" style="font-size: 27px;"></i> <span style="font-size:30px;font-weight: 600;">
+                            <%= city %>
+                        </span> <br>
+                        <h2 style="margin-bottom: -2px;">
+                            <%=day %>
+                        </h2>
+                        <p>
+                            <%= date %>
+                                <%=month%>
+                                    <%=year%> ,
+                                        <%=hr %>:
+                                            <%=min%>
+                        </p>
+                        <i class="fa-sharp fa-solid fa-wind"></i> <span>Wind <%=weather.wind.speed %> kmph</span> <br>
+                        <i class="fa-solid fa-droplet"></i> <span>Humidity <%= weather.main.humidity %></span>
+                    </div>
+                    <div class="rr">
+                        <i class="fa-solid fa-temperature-quarter"></i>
+                        <p style="margin-top:-60px;margin-left: 40px;">Minimum temperature</p>
+                        <p style="margin-top:-20px;font-size:30px;margin-left: 40px;"><b>
+                                <%= weather.main.temp_min %> Degrees
+                            </b></p>
+
+                        <i class="fa-solid fa-temperature-quarter"></i>
+                        <!-- <i class="fa-solid fa-temperature-sun"></i> -->
+                        <!-- <i class="fa-solid fa-temperature-high"></i> -->
+                        <p style="margin-top:-60px;margin-left: 40px;">Maximum temperature</p>
+                        <p style="margin-top:-20px;font-size:30px;margin-left: 40px;"><b>
+                                <%= weather.main.temp_max %> Degrees
+                            </b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="msp" id="msp">
+            <div class="title">
+                <h3>Minimum Support Price</h3>
+                <div class="msp-search">
+                    <form action="/search_crop" method="post">
+                        <input type="text" placeholder="Search Crop" name="crop_name">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+
+            </div>
+            <!-- <div class="search">
+                <form action="/search_crop" method="POST">
+                    <input type="submit" value="Search">
+                    <input type="text" name="crop_name">
+                    <br><br>
+                </form>
+            </div> -->
+            <div class="tool-card">
+                <% var i=0 %>
+                    <%if(data1.length==0) { %>
+                        <h2>No Crops Found</h2>
+                        <% } %>
+                            <% for(i=0;i<data1.length;i++) { %>
+                                <div class="card" style="height:260px">
+                                    <div class="img">
+                                        <img src="<%= data1[i].image %>" alt="">
+                                    </div>
+                                    <div class="text">
+                                        <h5>
+                                            <%= data1[i].name %>
+                                        </h5>
+                                        <p><b>Cost : </b>₹
+                                            <%= data1[i].price %> Per Kg
+                                        </p>
+                                    </div>
+                                </div>
+                                <% } %>
+            </div>
+            <!-- <div id="product_container">
+                    <% var i=0 %>
+                        <% for(i=0;i<data1.length;i++) { %>
+                            <div id="product_box">
+                                <img src="<%= data1[i].image %>" id="pro-img">
+                                <p id="crop-name">
+                                    <%= data1[i].name %>
+                                </p>
+                                <p>Cost : ₹
+                                    <%= data1[i].price %> Per Kg
+                                </p>
+                            </div>
+                        <% } %>
+                </div> -->
+
+        </div>
+
+</body>
+
+</html>

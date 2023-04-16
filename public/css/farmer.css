@@ -1,0 +1,941 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+nav {
+    background-color: rgb(31, 243, 112);
+    ;
+    /* margin-top: 10px; */
+    height: 7vh;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 10000;
+}
+
+nav .nav-item a,
+nav .nav-item button {
+    font-size: 16px;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+}
+
+nav .nav-item button:hover {
+    color: black;
+}
+
+.notifications {
+    display: none;
+}
+
+.chupinchu {
+    display: block;
+    /* border: 1px solid red; */
+    height: 60vh;
+    margin-top: 7vh;
+    width: 35%;
+    float: right;
+    z-index: 10000000;
+    position: fixed;
+    /* border-radius: 0 0 10px 10p; */
+    top: 0;
+    right: 10%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: white;
+    padding: 10px;
+}
+
+.notifications .rq-card {
+    position: relative;
+    width: 100%;
+    height: 70px;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.notifications .rq-card .i-type {
+    position: relative;
+    width: 30px;
+    height: 100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notifications .rq-card .i-text {
+    padding-top: 5px;
+    position: relative;
+    width: 100%-50px;
+    padding-top: 16px;
+    padding-left: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.notifications .rq-card .i-logic {
+    position: relative;
+    width: 20px;
+    /* border: 1px solid red; */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.notifications .rq-card .i-logic i {
+    color: green;
+    font-size: 20px;
+}
+
+.notifications .rq-card .i-type i {
+    color: green;
+    font-size: 30px;
+}
+
+.home {
+    height: 100vh;
+    /* border: 2px solid red; */
+    background-image: url('/images/farmer-home-bg.png');
+    display: flex;
+    padding-top: 7vh;
+    background-size: cover;
+}
+
+.home .resprofile {
+    border: 10px;
+    height: 100%;
+    width: 50%;
+    /* border: 10px solid red; */
+}
+
+.home .hleft {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 30%;
+    height: 100%;
+}
+
+.home .hleft .text {
+    padding-left: 60px;
+    /* border: 1px solid blue; */
+    position: relative;
+    height: 40%;
+    width: 90%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home .hleft .text h3 {
+    font-size: 30px;
+}
+
+.home .hleft .text h1 {
+    margin-top: -15px;
+    font-size: 55px;
+}
+
+.home .hleft .text a {
+    padding: 10px 20px;
+    /* border: 1px solid green; */
+    box-shadow: 0 0 10px rgb(81, 235, 140);
+    margin-right: 20px;
+    border-radius: 10px;
+    background-color: rgb(12, 211, 88);
+    font-weight: 600;
+}
+
+.home .image {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 20%;
+    height: 100%;
+}
+
+.home .image img {
+    position: relative;
+    width: 130%;
+    height: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home .hright {
+    /* border: 1px solid red; */
+    padding-top: 50px;
+    position: relative;
+    width: 50%;
+    height: 100%;
+}
+
+.home .hright img {
+    height: 200px;
+    margin-top: -200px;
+    margin-right: 20px;
+    /* color: black; */
+    float: right;
+}
+
+.home .hright h1 {
+    font-size: 40px;
+    font-weight: 600;
+    /* border:1px solid red; */
+    margin-top: 180px;
+    margin-left: 150px;
+    /* color: rgb(7, 243, 98); */
+}
+
+.home .hright .rl {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 50%;
+    padding-left: 130px;
+}
+
+.home .hright .ppp {
+    display: flex;
+}
+
+.home .hright .rl i {
+    font-size: 25px;
+    color: rgb(6, 236, 6);
+    padding-right: 10px;
+}
+
+.home .hright .rl span {
+    font-size: 20px;
+}
+
+.home .hright .rr {
+    /* padding: 20px; */
+    /* border: 1px solid red; */
+    position: relative;
+    width: 50%;
+    padding: 20px;
+    padding-left: 30px;
+}
+
+.home .hright .rr i {
+    font-size: 60px;
+    color: rgb(6, 236, 6);
+}
+
+.home .hright .rr p {
+    font-weight: 400px;
+}
+
+.msp {
+    /* height: 93vh; */
+    /* border: 1px solid red; */
+    background-color: white;
+    /* padding: 10px 65px; */
+}
+
+.title {
+    position: relative;
+    width: 100%;
+    height: 7vh;
+    /* border: 1px solid red; */
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title .msp-search {
+    height: 40px;
+    width: 250px;
+    border: 2px solid rgb(8, 241, 8);
+    border-radius: 10px;
+}
+
+.title .msp-search form {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.title .msp-search form input {
+    position: relative;
+    height: 100%;
+    float: left;
+    border: 0px;
+    width: 80%;
+    border-radius: 10px 0px 0px 10px;
+}
+
+.title .msp-search form button {
+    /* margin: -3px; */
+    width: 42px;
+    height: 100%;
+    background-color: rgb(37, 231, 37);
+    border-radius: 0px 10px 10px 0px;
+    border: 0px;
+    width: 20%;
+}
+
+.whole {
+    padding-top: 80px;
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 1000px; */
+    /* padding-bottom: 100px; */
+}
+
+.whole .right {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 60%;
+}
+
+.whole .right .profile {
+    /* border: 1px solid red; */
+    height: 450px;
+    border-radius: 20px;
+    background-color: white;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.whole .right .profile .banner {
+    position: relative;
+    height: 43%;
+    width: 100%;
+    background-color: yellow;
+    /* border: 1px solid red; */
+    border-radius: 20px 20px 0 0;
+}
+
+.whole .right .profile .banner img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+}
+
+.whole .right .profile .main-pic {
+    position: relative;
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    border: 5px solid rgb(255, 255, 255);
+    background-color: green;
+    margin-left: 30px;
+    margin-top: -120px;
+}
+
+.whole .right .profile .main-pic button {
+    padding: 6px 15px;
+    color: white;
+    background-color: rgb(0, 181, 0);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(6, 236, 6);
+    ;
+    border: 0px;
+    margin: 5px;
+}
+
+.whole .right .profile .main-pic img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.whole .right .profile .text {
+    /* border: 1px solid red; */
+    height: 57%;
+    margin-top: -50px;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+}
+
+.whole .right .profile .text .ltext {
+    /* border: 1px solid red; */
+    position: relative;
+    height: 100%;
+    width: 40%;
+    padding-top: 70px;
+    padding-left: 35px;
+}
+
+.whole .right .profile .text .rtext {
+    /* border: 1px solid red; */
+    position: relative;
+    height: 100%;
+    width: 60%;
+    padding: 10px;
+}
+
+.whole .right .profile .text .rtext button {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 6px 15px;
+    color: white;
+    background-color: rgb(0, 181, 0);
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgb(6, 236, 6);
+    ;
+    border: 0px;
+}
+
+.whole .right .profile .text .rtext a i {
+    font-size: 20px;
+}
+
+.whole .right .profile .text .rtext .address {
+    display: flex;
+    /* border: 1px solid red; */
+    margin-top: 65px;
+}
+
+.whole .right .profile .text .rtext .aleft {
+    /* border: 1px solid red; */
+    position: relative;
+    width: 50%;
+}
+
+.whole .right .profile .text .rtext .aright {
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.whole .left {
+    /* border: 1px solid red; */
+    position: relative;
+    height: 90vh;
+    padding: 10px;
+    width: 20%;
+    top: 0px;
+    padding-right: 150px;
+}
+
+.whole .left .options {
+    /* border: 1px solid red; */
+    /* position: fixed; */
+    height: 85vh;
+    border-radius: 20px;
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    width: 280px;
+    flex-direction: column;
+    /* justify-content: cen ter; */
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+}
+
+.underline2 {
+    /* background-color: grey; */
+    border: 1px solid rgb(191, 178, 178);
+    width: 100%;
+    margin: 10px 0;
+}
+
+.whole .left .options a {
+    font-size: 17px;
+}
+
+.whole .left .options i {
+    color: rgb(0, 181, 0);
+}
+
+.whole .left .options img {
+    position: relative;
+    width: 120%;
+    height: 50%;
+}
+
+.ltitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.lval {
+    font-size: 16px;
+    color: rgb(81, 79, 79);
+}
+
+.whole .history {
+    margin-bottom: 20px;
+    height: 350px;
+    border-radius: 20px;
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.whole .mycrops {
+    margin-bottom: 20px;
+    height: 250px;
+    border-radius: 20px;
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.whole .requests {
+    margin-bottom: 20px;
+    height: 350px;
+    border-radius: 20px;
+    background-color: white;
+    width: 100%;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.notify {
+    /* border: 1px solid red; */
+    margin: 10px;
+    height: 250px;
+    padding: 10px;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+.notify .notify-card {
+    /* border: 1px solid blue; */
+    /* position: relative; */
+    border-radius: 10px;
+    background-color: rgb(217, 228, 215);
+    width: 400px;
+    height: 78px;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.notify .notify-card .icon {
+    position: relative;
+    height: 100%;
+    width: 10%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.notify .notify-card .icon i {
+    position: relative;
+    font-size: 25px;
+}
+
+.notify .notify-card .msg {
+    position: relative;
+    height: 100%;
+    width: 80%;
+    /* padding: 0 10px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+}
+
+.notify .notify-card .msg p {
+    margin-top: 10px;
+    /* border: 1px solid red; */
+}
+
+.notify .notify-card .c-r {
+    padding: 8px;
+    position: relative;
+    height: 100%;
+    width: 10%;
+    /* border: 1px solid red; */
+    /* display: flex; */
+}
+
+.whole .requests .notify .notify-card .c-r a {
+    margin: 0;
+    font-size: 20px;
+    width: 100%;
+}
+
+.modal-body .edit-address {
+    position: relative;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-right: 0;
+    /* flex-direction: column; */
+}
+
+.modal-body .edit-address .form-group {
+    position: relative;
+    margin-right: 5px;
+    width: 48%;
+}
+
+.modal-body .form-group input {
+    border: 0.5px solid rgb(203, 200, 200);
+}
+
+.whole .balance {
+    /* border: 1px solid red; */
+    position: relative;
+    height: 120px;
+    margin-top: -80px;
+    margin-bottom: -40px;
+    z-index: -1;
+}
+
+.whole .div-title {
+    width: 100%;
+    font-size: 25px;
+    font-weight: 500;
+    /* border: 1px solid red; */
+    position: relative;
+    height: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.whole .div-title i {
+    font-size: 20px;
+    color: green;
+    float: right;
+}
+
+.whole .div-title .modal-body label {
+    font-size: 18px;
+}
+
+.whole .mycrops .crop {
+    display: flex;
+    position: relative;
+    height: 84%;
+    width: 100%;
+}
+
+.whole .mycrops .present {
+    /* border: 1px solid red; */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    position: relative;
+    height: 100%;
+    width: 49%;
+    margin-right: 1%;
+    background-color: rgb(217, 228, 215);
+}
+
+.whole .mycrops i {
+    color: green;
+}
+
+.whole .mycrops .future {
+    /* border: 1px solid red; */
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    position: relative;
+    height: 100%;
+    width: 49%;
+    margin-left: 1%;
+    background-color: rgb(217, 228, 215);
+}
+
+.tools {
+    border: 1px solid red;
+    height: 100vh;
+}
+
+.tools .t-mid {
+    /* border: 1px solid red; */
+    position: relative;
+    height: 60%;
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.tools .t-mid .t-card {
+    /* border:1px solid blue; */
+    background-color: rgb(96, 225, 84);
+    position: relative;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    border-radius: 20px;
+}
+
+.farmer-tools {
+    /* border: 1px solid red; */
+    min-height: 100vh;
+    padding: 0px;
+    padding-top: 7vh;
+}
+
+.top-search {
+    /* border: 1px solid red; */
+    height: 7vh;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tool-card {
+    /* border: 1px solid red; */
+    min-height: 86vh;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.farmer-tools .tool-card .t-card {
+    /* border: 1px solid red; */
+    height: 260px;
+    width: 300px;
+    border-radius: 10px;
+    background-color: white;
+    margin: 15px;
+}
+
+.farmer-tools .tool-card .t-card .t-img {
+    /* border: 1px solid red; */
+    position: relative;
+    height: 52%;
+    width: 100%;
+    border-radius: 10px 10px 0px 0;
+}
+
+.farmer-tools .tool-card .t-card .t-img img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 10px 0px 0;
+}
+
+.farmer-tools .tool-card .t-card .t-text {
+    /* border: 1px solid red; */
+    position: relative;
+    height: 48%;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
+}
+
+.farmer-tools button,
+.farmer-tools a {
+    background-color: rgb(37, 231, 37);
+    border: 0px;
+    box-shadow: green;
+}
+
+.farmer-tools button:hover,
+.farmer-tools a:hover {
+    background-color: rgb(37, 231, 37);
+    box-shadow: 0 0 10px rgb(60, 229, 60);
+}
+
+.search {
+    border: 2px solid rgb(37, 231, 37);
+    width: 250px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.search .form {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border: 10px solid red;
+    background-color: white;
+    display: flex;
+}
+
+.search input {
+    margin: 0;
+    width: 205px;
+    position: relative;
+    height: 100%;
+    padding: 10px;
+    border-radius: 10px 0px 0px 10px;
+    border: 0px;
+}
+
+.search button {
+    margin: -3px;
+    width: 42px;
+    height: 100%;
+    background-color: rgb(37, 231, 37);
+    border-radius: 0px 10px 10px 0px;
+    border: 0px;
+}
+
+.textbox {
+    width: 90%;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.331);
+}
+
+.askbtn {
+    background-color: rgba(0, 212, 255, 1);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.331);
+}
+
+@media (max-width:1350px) {
+    .home {
+        height: 120vh;
+        padding: 10px;
+        display: flex;
+        /* flex-direction: column; */
+        justify-self: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /* border: 1px solid red; */
+    }
+    .home .resprofile {
+        display: flex;
+        /* flex-direction: column; */
+        width: 100%;
+        height: 40%;
+        justify-self: center;
+        align-items: center;
+        /* border: 1px solid red; */
+    }
+    .home .hleft {
+        /* border: 1px solid green; */
+        width: 40%;
+        height: 40%;
+    }
+    .home .image {
+        /* border: 1px solid green; */
+        width: 20%;
+        height: 40%;
+    }
+    .home .hright {
+        width: 100%;
+        padding: 0px;
+        /* border: 1px solid green; */
+    }
+    .home .hleft .text h3 {
+        font-size: 20px;
+    }
+    .home .hleft .text h1 {
+        font-size: 35px;
+    }
+    .home .hleft .text a {
+        font-size: 17px;
+        padding: 10px 7px;
+        margin: 5px;
+    }
+    .home .hleft .text .btns {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width:700px) {
+    .home {
+        height: 120vh;
+        padding: 10px;
+        display: flex;
+        /* flex-direction: column; */
+        justify-self: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /* border: 1px solid red; */
+    }
+    .home .hleft {
+        /* border: 1px solid green; */
+        width: 80%;
+        padding: 0px;
+        height: 40%;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+    }
+    .home .hleft .text a {
+        font-size: 15px;
+        padding: 7px 7px;
+        margin: 5px;
+    }
+    .home .image {
+        /* border: 1px solid green; */
+        width: 20%;
+        height: 40%;
+    }
+    .home .hright {
+        width: 100%;
+        padding: 0px;
+        height: 60%;
+        /* border: 1px solid green; */
+    }
+    .home .hleft .text .btns {
+        flex-wrap: nowrap;
+    }
+    .home .hright img {
+        height: 150px;
+        margin: 0px;
+        margin-top: -40px;
+    }
+    .home .hright h1 {
+        margin: 0px;
+        font-size: 30px;
+    }
+    .home .hright .rr {
+        position: relative;
+        width: 100%;
+    }
+    .home .hright .rl {
+        width: 100%;
+        padding: 20px 20px 20px 30px;
+    }
+    .home .hright .ppp {
+        /* width: 100%; */
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* border:1px solid green; */
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,92 @@
+<%- include("header.ejs") -%>
+    <div class="farmer-tools container">
+        <div class="top-search">
+            <h3>My Tools</h3>
+
+            <div class="search">
+                <form action="/search_tool" method="POST">
+                    <input type="text" placeholder="Search" name="tool_name">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="addbtn">
+            <a href="" class="msp-add btn btn-primary" style="background-color: green; border:0px; box-shadow: 0 0 5px rgb(22, 231, 22);" data-bs-toggle="modal" data-bs-target="#mspadd" x>
+                Add Tool
+            </a>
+            <div class="modal fade" id="mspadd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Tool</h1>
+                            <button type="button" style="background-color: transparent; box-shadow: 0 0 0px;margin-right:-10px;margin-top: 0px;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/addtool" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tool Name:</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Crop Name" name="name">
+                                </div> <br>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tool Price:</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Crop Price" name="price">
+                                </div> <br>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tool Picture Url:</label>
+                                    <input type="tect" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="image">
+                                </div> <br>
+                                <button class="btn btn-primary" style="background-color: green; border:0px; box-shadow: 0 0 5px rgb(22, 231, 22);" type="submit">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tool-card">
+            <% var i=0 %>
+                <%if(data.length==0) { %>
+                    <h2>No Tool Found</h2>
+                    <% } %>
+                        <% for(i=0;i<data.length;i++) { %>
+                            <div class="t-card">
+                                <div class="t-img">
+                                    <img src="<%= data[i].image %>" alt="">
+                                </div>
+                                <div class="t-text">
+                                    <h5 class="card-title">
+                                        <%= data[i].name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <b>Price :₹<%= data[i].price %> </b>
+                                    </p>
+                                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%=data[i]._id %>">Update</a>
+                                    <a href="/deletetool/<%=data[i]._id %>" class="btn btn-primary">Delete</a>
+
+                                    <div class="modal fade" id="<%=data[i]._id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <form action="/updatetool/<%= data[i]._id %>" method="post">
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">Price</label>
+                                                            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Price" name="price">
+                                                        </div> <br>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+        </div>
+    </div>
+
+
+
+
+    <%- include("partials/footer") -%>

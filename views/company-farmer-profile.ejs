@@ -1,0 +1,76 @@
+<%- include("partials/company-header") -%>
+
+    <div class="whole">
+        <div class="profile">
+            <div class="banner">
+                <img src="/images/f-banner.png" alt="">
+            </div>
+            <div class="main-pic">
+                <img src="/images/profile-logo.png" alt="">
+            </div>
+            <div class="text">
+                <div class="one">
+                    <h3>
+                        <%= data.name %>
+                    </h3>
+                    <span>
+                        <span class="ltitle">Email : </span>
+                    <span class="lval">
+                            <%= data.mail %>
+                        </span>
+                    <br>
+                    <span class="ltitle">Whatsapp : </span>
+                    <span class="lval">
+                            <%= data.phone %>
+                        </span>
+                    <br>
+                    <span class="ltitle">Experience : </span>
+                    <span class="lval">
+                            <%= data.experience %>
+                        </span>
+                    <br>
+                    <span class="ltitle">Qualification : </span>
+                    <span class="lval">
+                            <%= data.qualification %>
+                        </span>
+                    </span>
+                </div>
+                <div class="two">
+                    <h5>Address :</h5>
+                    <span class="ltitle">Door Num : </span>
+                    <span class="lval">
+                        <%= data.door %>
+                    </span>
+                    <br>
+                    <span class="ltitle">Street : </span>
+                    <span class="lval">
+                        <%= data.street %>
+                    </span>
+                    <br>
+                    <span class="ltitle">City : </span>
+                    <span class="lval">
+                        <%= data.City %>
+                    </span>
+                    <br>
+                    <span class="ltitle">State : </span>
+                    <span class="lval">
+                        <%= data.state %>
+                    </span>
+                </div>
+                <div class="three">
+                    <span class="ltitle">PinCode : </span>
+                    <span class="lval">
+                        <%= data.pin %>
+                    </span>
+                    <br>
+                    <span class="ltitle">Country/Region : </span>
+                    <span class="lval">
+                        <%= data.country %>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <%- include("partials/footer") -%>

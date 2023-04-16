@@ -1,0 +1,445 @@
+<%- include("header.ejs") -%>
+
+    <div class="whole" style="padding-top:85px">
+        <div class="right">
+            <div class="profile">
+                <div class="banner">
+                    <a href="">
+                        <img src="/images/f-banner.png" alt="">
+                    </a>
+                </div>
+
+                <div class="main-pic">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#profilepic">
+                        <img src="/images/profile-logo.png" alt="">
+                    </a>
+                    <div class="modal fade" id="profilepic" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Profile Picture</h1>
+                                    <button type="button" style="background-color: transparent; box-shadow: 0 0 0px;margin-right:-10px;margin-top: 0px;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Username</label>
+                                            <input type="file" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                        </div>
+                                        <button class="btn">
+                                            Submit
+                                        </button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text">
+                    <div class="ltext">
+                        <h3>
+                            <%= data.name %>
+                        </h3>
+                        <span>
+                            <span class="ltitle">Email : </span>
+                        <span class="lval">
+                                <%= data.mail %>
+                            </span>
+                        <br>
+                        <span class="ltitle">Whatsapp : </span>
+                        <span class="lval">
+                                <%= data.phone %>
+                            </span>
+                        <br>
+                        <span class="ltitle">Experience : </span>
+                        <span class="lval">
+                                <%= data.experience %>
+                            </span>
+                        <br>
+                        <span class="ltitle">Qualification : </span>
+                        <span class="lval">
+                                <%= data.qualification %>
+                            </span>
+                        </span>
+
+                    </div>
+                    <div class="rtext">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editprofile">
+                            <span>Edit &nbsp</span> <i class="fa-solid fa-pencil"></i>
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="editprofile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Profile</h1>
+                                        <button type="button" style="background-color: transparent; box-shadow: 0 0 0px;margin-right:-10px;margin-top: -10px;" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/update" method="post">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Username</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="name" value="<%=data.name %>">
+                                            </div>
+                                            <div class="edit-address">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Experience</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="experience" value="<%=data.experience %>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Qualification</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="qualification" value="<%=data.qualification %>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Email</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="mail" value="<%=data.mail %>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Phone Number</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="phone" value="<%=data.phone %>">
+                                            </div>
+                                            <br>
+                                            <h5>Address</h5>
+                                            <div class="edit-address">
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Door Number</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="door" value="<%=data.door %>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Street</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="street" value="<%=data.street %>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">City</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="city" value="<%=data.City %>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">State</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="state" value="<%=data.state %>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Pincode</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="pin" value="<%=data.pin %>">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleInputEmail1">Country</label>
+                                                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="country" value="<%=data.country %>">
+                                                </div>
+                                            </div>
+                                            <center><button style="margin: 10px; padding:7px 20px;" class="btn primary-btn">Submit</button></center>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="address">
+                            <div class="aleft">
+                                <h5>Address :</h5>
+                                <span class="ltitle">Door Num : </span>
+                                <span class="lval">
+                                    <%= data.door %>
+                                </span>
+                                <br>
+                                <span class="ltitle">Street : </span>
+                                <span class="lval">
+                                    <%= data.street %>
+                                </span>
+                                <br>
+                                <span class="ltitle">City : </span>
+                                <span class="lval">
+                                    <%= data.City %>
+                                </span>
+                                <br>
+                                <span class="ltitle">State : </span>
+                                <span class="lval">
+                                    <%= data.state %>
+                                </span>
+                                <br>
+                            </div>
+                            <div class="aright">
+                                <span class="ltitle">PinCode : </span>
+                                <span class="lval">
+                                    <%= data.pin %>
+                                </span>
+                                <br>
+                                <span class="ltitle">Country/Region : </span>
+                                <span class="lval">
+                                    <%= data.country %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="balance" id="mycrops"></div>
+            <div class="mycrops" id="">
+                <div class="div-title">
+                    My Crops
+                    <a href="" data-bs-toggle="modal" data-bs-target="#editmycrop">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                    <!-- Button trigger modal
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Launch demo modal
+                    </button> -->
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="editmycrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">My Crops</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/update1" method="post">
+                                        <h5>Present Crop</h5>
+                                        <div class="edit-address">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Crop Name</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Crop Name" name="pname" value="<%=data.p_name %>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Price</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Price" name="pprice" value="<%=data.p_price %>">
+                                            </div>
+                                        </div>
+                                        <div class="edit-address">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Quantity</label>
+                                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Quantity in Kgs" name="pquantity" value="<%=data.p_quantity %>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Status</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Crop Status" name="pstatus" value="<%=data.p_status %>">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <h5>Future Crop</h5>
+                                        <div class="edit-address">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Crop Name</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Crop Name" name="fname" value="<%=data.f_name %>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Price</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Price" name="fprice" value="<%=data.f_price %>">
+                                            </div>
+                                        </div>
+                                        <div class="edit-address">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Quantity</label>
+                                                <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Quantity in Kgs" name="fquantity" value="<%=data.f_quantity %>">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Status</label>
+                                                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Crop Status" name="fstatus" value="<%=data.f_status %>">
+                                            </div>
+                                        </div>
+                                        <!-- <br> -->
+                                        <button style="margin-top: 5px; background-color: green; border: 0px;" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="crop">
+                    <div class="present">
+                        <h4>Present Crop</h4>
+                        <i class="fa-solid fa-wheat-awn"></i>
+                        <span class="ltitle">Crop Name : </span>
+                        <span class="lval">
+                            <%= data.p_name %>
+                        </span>
+                        <br>
+                        <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                        <span class="ltitle">Price : </span>
+                        <span class="lval">₹<%= data.p_price %>/- Per Kg</span>
+                        <br>
+                        <i class="fa-sharp fa-solid fa-weight-hanging"></i>
+                        <span class="ltitle">Quantity : </span>
+                        <span class="lval">
+                            <%= data.p_quantity %> Kgs
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-signal"></i>
+                        <span class="ltitle">Status : </span>
+                        <span class="lval">
+                            <%= data.p_status %>
+                        </span>
+                        <!-- <br> -->
+                    </div>
+                    <div class="future">
+                        <h4>Future Crop</h4>
+                        <i class="fa-solid fa-wheat-awn"></i>
+                        <span class="ltitle">Crop Name : </span>
+                        <span class="lval">
+                            <%= data.f_name %>
+                        </span>
+                        <br>
+                        <i class="fa-sharp fa-solid fa-indian-rupee-sign"></i>
+                        <span class="ltitle">Price : </span>
+                        <span class="lval">₹<%= data.f_price %>/- Per Kg</span>
+                        <br>
+                        <i class="fa-sharp fa-solid fa-weight-hanging"></i>
+                        <span class="ltitle">Quantity : </span>
+                        <span class="lval">
+                            <%= data.f_quantity %> Kgs
+                        </span>
+                        <br>
+                        <i class="fa-solid fa-signal"></i>
+                        <span class="ltitle">Status : </span>
+                        <span class="lval">
+                            <%= data.f_status %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="balance" id="request"></div>
+            <div class="requests">
+                <div class="div-title">
+                    My Requests
+                    <a href="">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                </div>
+                <div class="notify">
+                    <center>
+                        <% for(var i=0;i<reque.length;i++) { %>
+                            <% var check=reque[i].status %>
+                                <% var kir=0 %>
+                                    <% if(check==0) { %>
+                                        <% kir=kir+1 %>
+                                            <div class="notify-card">
+                                                <div class="icon">
+                                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                                </div>
+                                                <div class="msg">
+                                                    <!-- <i class="fa-solid fa-screwdriver-wrench"></i> -->
+                                                    <p>Received Request for
+                                                        <%= reque[i].item%>
+                                                    </p>
+                                                    <p>From
+                                                        <%= reque[i].sender_name %>
+                                                    </p>
+                                                    <p>Phone Number:
+                                                        <%= reque[i].sender_phone%>
+                                                    </p>
+                                                </div>
+                                                <div class="c-r">
+                                                    <a href="/check_request/<%= reque[i]._id %>"><i
+                                                            class="fa-solid fa-check"></i></a> <br>
+                                                    <a href="/delete_request/<%= reque[i]._id %>"><i
+                                                            class="fa-sharp fa-solid fa-xmark"
+                                                            style="color:red;"></i></a>
+                                                </div>
+                                            </div>
+                                            <% } %>
+                                                <% } %>
+                                                    <%if(kir==0) {%>
+                                                        <h2>NO Requests Available</h2>
+                                                        <% } %>
+                    </center>
+
+                </div>
+            </div>
+            <div class="balance" id="history"></div>
+            <div class="history">
+                <div class="div-title">
+                    History
+                    <a href="">
+                        <i class="fa-solid fa-pencil"></i>
+                    </a>
+                </div>
+                <div class="notify">
+                    <center>
+                        <% var kir1=0 %>
+                            <% for(var i=0;i<reque.length;i++) { %>
+                                <% var check=reque[i].status %>
+                                    <% if(check==1) { %>
+                                        <% kir1=kir1+1 %>
+
+                                            <div class="notify-card">
+                                                <div class="icon">
+                                                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                                                </div>
+                                                <div class="msg">
+                                                    <!-- <i class="fa-solid fa-screwdriver-wrench"></i> -->
+                                                    <p>Received Request for
+                                                        <%= reque[i].item%>
+                                                    </p>
+                                                    <p>From
+                                                        <%= reque[i].sender_name %>
+                                                    </p>
+                                                    <p>Phone Number:
+                                                        <%= reque[i].sender_phone%>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                            <% } %>
+                                                <% } %>
+                                                    <%if(kir1==0) { %>
+                                                        <h2>NO History Available</h2>
+                                                        <% } %>
+                    </center>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="left">
+            <div class="options" style="position: fixed; top: 85px;">
+                <a href="#mycrops">
+                    <i class="fa-solid fa-wheat-awn"></i> &nbspMy Crops
+                </a>
+                <div class="underline2"></div>
+                <a href="#request">
+                    <i class="fa-solid fa-code-pull-request"></i> &nbspRequests
+                </a>
+                <div class="underline2"></div>
+                <a href="#history">
+                    <i class="fa-sharp fa-solid fa-clock-rotate-left"></i> &nbspHistory
+                </a>
+                <div class="underline2"></div>
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> &nbspLogOut
+                </a>
+                <div class="underline2"></div>
+
+                <div class="my-auto"></div>
+                <img src="/images/f-vector.png" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <%- include("partials/footer") -%>

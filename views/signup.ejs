@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Registration</h1>
+        </div>
+        <form action="/signup" method="post">
+            <div class="user_details">
+
+                <p>Username</p>
+                <input type="text" placeholder="enter your name" name="name" required>
+
+                <p>Email</p>
+                <input type="text" placeholder="enter your name" name="mail" required>
+
+                <p>Phone Number</p>
+                <input type="text" placeholder="enter your number" name="phone" required>
+
+                <p>Password</p>
+                <input type="password" placeholder="*******" name="password" required>
+
+            </div>
+            <div class="login-type">
+                <div class="user">
+                    <p>User type</p>
+                </div>
+                <div class="userr2" style="color:black">
+                    <select name="type" id="" style="color:white">
+                        <option value="one" style="color:black">farmer login</option>
+                        <option value="two" style="color:black">company login</option>
+                        <option value="three" style="color:black" selected>-</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="lang">
+                <label for="css">Language</label>&nbsp;&nbsp;
+                <input type="radio" id="html" name="fav_language" value="English">
+                <label for="css">English</label>&nbsp;&nbsp;
+                <input type="radio" id="css" name="fav_language" value="Hindi">
+                <label for="css">Hindi</label>&nbsp;&nbsp;
+                <input type="radio" id="telugu" name="fav_language" value="Telugu">
+                <label for="telugu">Telugu</label>
+
+
+
+            </div>
+            <div class="sub">
+                <button type="submit">signup</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

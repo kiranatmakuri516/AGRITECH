@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-image: url("../images/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position: center; */
+    font-family: sans-serif;
+}
+
+.container {
+    width: 420px;
+    height: 550px;
+    border-radius: 1%;
+    background-color: #171616bb;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+h1 {
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.title {
+    /* background-color:blue; */
+    margin-top: -40px;
+}
+
+.user_details p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.user_details input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.user_details input[type="text"],
+input[type="password"] {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.login-type {
+    /* border: 1px solid white; */
+    display: flex;
+}
+
+.login-type select {
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 30px;
+    width: 270px;
+    color: #fff;
+    font-size: 16px;
+    padding-right: -30px;
+    color: rgb(251, 253, 251);
+}
+
+.login-type .user {
+    /* border: 1px solid pink; */
+    width: 90px;
+    font-weight: bold;
+}
+
+.lang label {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.lang {
+    padding-top: 20px;
+}
+
+.sub {
+    /* border: 1px solid green; */
+    height: 70px;
+    width: 300px;
+    padding-top: 15px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 20px;
+}
+
+.sub button {
+    height: 60%;
+    width: 100%;
+    font-size: 15px;
+    background-color: #76a908;
+    /* border: 2px solid #76a908; */
+    border-radius: 25px;
+    border: 0;
+    color: white;
+    font-weight: bold;
+}
+
+
+@media (max-width:700px){
+    .container{
+        width: 390px;
+        height: 580px;
+    }
+}

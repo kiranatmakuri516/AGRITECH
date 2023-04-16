@@ -1,0 +1,190 @@
+<%- include("partials/company-header") -%>
+
+
+    <div class="home" id="home">
+
+
+        <div class="div-title">
+            <h4>Farmers Display</h4>
+            <div class="search">
+                <form action="/search_user" method="POST">
+                    <input type="text" placeholder="Enter Crop/Location" name="cl">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="farmers-card container">
+            <% if(data.length==0){ %>
+                <h2>No Farmers Found</h2>
+                <% } %>
+                    <% for(var i=0;i<data.length;i++) { %>
+                        <% if(data[i].type==="one" ) { %>
+                            <div class="f-card">
+                                <div class="pro-pic">
+                                    <div class="round">
+                                        <img src="/images/profile-logo.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="text">
+                                    <center>
+                                        <h5>
+                                            <%= data[i].name %>
+                                        </h5>
+                                    </center>
+                                    <center><span style="font-size:17px;font-weight:500">Location : </span>
+                                        <!-- <span>-</span> -->
+                                        <span>
+                                            <%= data[i].City %>
+                                        </span>
+                                    </center>
+                                    <span style="font-size:17px;font-weight:500">Present Crop</span><br>
+                                    <div class="move">
+                                        <span>
+                                            <%= data[i].p_name %>
+                                        </span>
+                                        <!-- <span>-</span> -->
+                                        <% if(data[i].p_status==1) { %>
+                                            <span>Sold</span>
+                                            <% } %>
+                                                <% if(data[i].p_status==0) { %>
+                                                    <span>Not Sold</span>
+                                                    <% } %>
+                                    </div>
+
+
+                                    <div class="middle">
+                                        <a href="/cmpprofile/<%= data[i]._id %>" class="btn btn-primary">Profile</a>
+                                        <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#request">Request</a>
+
+                                        <div class="modal fade" id="request" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog  modal-dialog-centered">
+                                                <div class="modal-content">
+
+                                                    <div class="modal-body">
+                                                        <form action="/request1/<%=data[i]._id %>/<%=user.name %>/<%=user.phone %>/<%=data[i].p_name %>" method="post">
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1">Expected Price</label>
+                                                                <input type="text" class="form-control" id="exampleInputEmail1" name="price" aria-describedby="emailHelp" placeholder="Enter Price">
+                                                            </div> <br>
+                                                            <div class="form-group">
+                                                                <label for="exampleInputEmail1">Quantity</label>
+                                                                <input type="text" class="form-control" id="exampleInputEmail1" name="quantity" aria-describedby="emailHelp" placeholder="Enter Quantity">
+                                                            </div> <br>
+                                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                                        </form>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% } %>
+                                <% } %>
+
+        </div>
+
+    </div>
+
+
+    <div class="requests" id="requests">
+        <div class="div-title">
+            <h4>My Requests</h4>
+        </div>
+        <div class="farmers-card container" style="padding-top: 0px;">
+            <% var i=0 %>
+                <% var kir=0 %>
+                    <% for(i=0;i<reque.length;i++) { %>
+                        <% if(reque[i].status==0) { %>
+                            <% kir=kir+1 %>
+                                <div class="f-card" style="height:310px">
+                                    <div class="pro-pic">
+                                        <div class="round">
+                                            <img src="/images/profile-logo.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <center><span style="font-size:17px;font-weight:500">Requested Crop :
+                                            </span>
+                                            <!-- <span>-</span> -->
+                                            <span>
+                                                <%= reque[i].item %>
+                                            </span>
+                                        </center>
+                                        <center><span style="font-size:17px;font-weight:500">Expected Price :
+                                            </span>
+                                            <!-- <span>-</span> -->
+                                            <span>
+                                                <%= reque[i].price %> Per Kg
+                                            </span>
+                                        </center>
+                                        <center><span style="font-size:17px;font-weight:500">Requested Time :
+                                            </span>
+                                            <!-- <span>-</span> -->
+                                            <span>
+                                                <%= reque[i].date %>/<%=reque[i].month%>/<%=reque[i].year%>
+                                            </span>
+                                        </center>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% } %>
+                                        <% if(kir==0) { %>
+                                            <h2>No Requests details</h2>
+                                            <% } %>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="history" id="history">
+        <div class="div-title">
+            <h4>History</h4>
+        </div>
+        <div class="farmers-card container">
+            <% var j=0 %>
+                <% var kir=0 %>
+                    <% for(j=0;j<reque.length;j++) { %>
+                        <% if(reque[j].status==1) { %>
+                            <% kir=kir+1 %>
+                                <div class="f-card" style="height:310px">
+                                    <div class="pro-pic">
+                                        <div class="round">
+                                            <img src="/images/profile-logo.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="text">
+                                        <center><span style="font-size:17px;font-weight:500">Requested Crop :
+                                            </span>
+                                            <!-- <span>-</span> -->
+                                            <span>
+                                                <%= reque[j].item %>
+                                            </span>
+                                        </center>
+                                        <center><span style="font-size:17px;font-weight:500">Expected Price :
+                                            </span>
+                                            <!-- <span>-</span> -->
+                                            <span>
+                                                <%= reque[j].price %> Per Kg
+                                            </span>
+                                        </center>
+                                        <center><span style="font-size:17px;font-weight:500">Requested Time :
+                                            </span>
+                                            <!-- <span>-</span> -->
+                                            <span>
+                                                <%= reque[j].date %>/<%=reque[j].month%>/<%=reque[j].year%>
+                                            </span>
+                                        </center>
+                                    </div>
+                                </div>
+                                <% } %>
+                                    <% } %>
+                                        <% if(kir==0) { %>
+                                            <h2>No History details</h2>
+                                            <% } %>
+        </div>
+    </div>
+    <%- include("partials/footer") -%>

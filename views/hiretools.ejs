@@ -1,0 +1,44 @@
+<%- include("header.ejs") -%>
+
+    <div class="farmer-tools container">
+        <div class="top-search">
+            <h3>All Tools</h3>
+            <div class="search">
+                <form action="/search_tool/hire" method="POST">
+                    <input type="text" placeholder="Search" name="tool_name">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="tool-card">
+            <% var i=0 %>
+                <% if(data.length==0) { %>
+                    <h2>No Tool Found</h2>
+                    <% } %>
+                        <% for(i=0;i<data.length;i++) { %>
+                            <div class="t-card" style="height: 350px;">
+                                <div class="t-img">
+                                    <img src="<%= data[i].image %>" alt="">
+                                </div>
+                                <div class="t-text">
+                                    <h5 class="card-title">
+                                        <%= data[i].name %>
+                                    </h5>
+                                    <p class="card-text">
+                                        <b>Price : </b>₹
+                                        <%= data[i].price %> per Hour <br>
+                                            <b>Phone : </b>
+                                            <%= data[i].phone %> <br>
+                                                <b>Location : </b>
+                                                <%= data[i].location %>
+                                    </p>
+
+                                    <a href="/request/<%= data[i].id %>/<%= user.name %>/<%= user.phone %>/<%= data[i].name %>/<%=data[i].price %> " class="btn btn-primary">Request</a>
+
+                                </div>
+                            </div>
+                            <% } %>
+        </div>
+    </div>
+
+    <%- include("partials/footer") -%>
