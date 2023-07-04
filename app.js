@@ -93,11 +93,11 @@ app.get("/", (req, res) => {
     res.render('index');
 });
 
-app.get("/signup", function(req, res) {
+app.get("/signup", function (req, res) {
     res.render("signup");
 });
 
-app.get("/login", function(req, res) {
+app.get("/login", function (req, res) {
     res.render("login");
 });
 
@@ -113,16 +113,16 @@ app.get("/addtool", (req, res) => {
     res.render('addtool');
 });
 
-app.get("/tools", function(req, res) {
+app.get("/tools", function (req, res) {
     res.render("tools");
 });
 
-app.get("/companyend", function(req, res) {
+app.get("/companyend", function (req, res) {
     var user = JSON.parse(localStorage.getItem("user"));
-    Farmer.find({}, function(err, data) {
+    Farmer.find({}, function (err, data) {
         if (err) console.log("Error at get company end");
         else {
-            Request.find({ sender_phone: user.phone }, function(err, reque) {
+            Request.find({ sender_phone: user.phone }, function (err, reque) {
                 if (err) console.log("Error at cmp requests");
                 else res.render("companyend", { data: data, reque: reque, user: user });
             });
@@ -130,9 +130,9 @@ app.get("/companyend", function(req, res) {
     });
 });
 
-app.get("/cmpprofile/:id", function(req, res) {
+app.get("/cmpprofile/:id", function (req, res) {
     var id = req.params.id;
-    Farmer.findOne({ _id: id }, function(err, data) {
+    Farmer.findOne({ _id: id }, function (err, data) {
         if (err) console.log("Error at cmp profile get route");
         else {
             res.render("company-farmer-profile", { data: data });
@@ -140,37 +140,37 @@ app.get("/cmpprofile/:id", function(req, res) {
     });
 })
 
-app.get("/info", function(req, res) {
+app.get("/info", function (req, res) {
     res.render("soil");
 });
-app.get("/soil-card", function(req, res) {
+app.get("/soil-card", function (req, res) {
     res.render("soil-card");
 });
 
-app.get("/open-card", function(req, res) {
+app.get("/open-card", function (req, res) {
     res.render("open-card");
 });
 
-app.get("/open-card1", function(req, res) {
+app.get("/open-card1", function (req, res) {
     res.render("open-card1");
 });
-app.get("/open-card2", function(req, res) {
+app.get("/open-card2", function (req, res) {
     res.render("open-card2");
 });
-app.get("/open-card3", function(req, res) {
+app.get("/open-card3", function (req, res) {
     res.render("open-card3");
 });
 
-app.get("/hiretools", function(req, res) {
+app.get("/hiretools", function (req, res) {
     var user = JSON.parse(localStorage.getItem("user"));
     console.log(user.name);
-    Tool.find({ id: { $ne: user._id } }, function(err, data) {
+    Tool.find({ id: { $ne: user._id } }, function (err, data) {
         if (err) console.log("Error at get tools");
         else res.render("hiretools", { data: data, user: user });
     });
 });
 
-app.get("/request/:owner/:sender_name/:sender_phone/:tool_name/:price", function(req, res) {
+app.get("/request/:owner/:sender_name/:sender_phone/:tool_name/:price", function (req, res) {
     var owner = req.params.owner;
     var sender_name = req.params.sender_name;
     var sender_phone = req.params.sender_phone;
@@ -207,7 +207,7 @@ app.get("/request/:owner/:sender_name/:sender_phone/:tool_name/:price", function
     });
     new_request.save();
     var a1 = JSON.parse(localStorage.getItem("user"));
-    Request.find({ owner_id: a1._id }, function(err, reque) {
+    Request.find({ owner_id: a1._id }, function (err, reque) {
         if (err) console.log("Error at profile requets");
         else {
             localStorage.setItem("requests", JSON.stringify(reque));
@@ -233,7 +233,7 @@ app.get("/product", (req, res) => {
     if (hr < 10) hr = "0" + hr;
     if (min < 10) min = "0" + min;
     var vinee = JSON.parse(localStorage.getItem("user"));
-    Product.find({}, function(err, data1) {
+    Product.find({}, function (err, data1) {
         if (err) console.log("error at get products route");
         else {
             const apiKey = "ec9b79c4c63c06534a519841060b102c";
@@ -249,7 +249,7 @@ app.get("/product", (req, res) => {
     });
 });
 
-app.get("/farmerview", function(req, res) {
+app.get("/farmerview", function (req, res) {
     res.render("farmersview");
 });
 
@@ -259,10 +259,10 @@ app.get("/farmer", (req, res) => {
 });
 app.get("/profile", (req, res) => {
     var a = JSON.parse(localStorage.getItem("user"));
-    Farmer.findOne({ _id: a._id }, function(err, data) {
+    Farmer.findOne({ _id: a._id }, function (err, data) {
         if (err) console.log("Error at profile page");
         else {
-            Request.find({ owner_id: a._id }, function(err, reque) {
+            Request.find({ owner_id: a._id }, function (err, reque) {
                 if (err) console.log("Error at profile requets");
                 else res.render('profile', { data: data, reque: reque });
             });
@@ -270,15 +270,15 @@ app.get("/profile", (req, res) => {
     });
 });
 
-app.get("/check_request/:id", function(req, res) {
+app.get("/check_request/:id", function (req, res) {
     var id = req.params.id;
     var a = JSON.parse(localStorage.getItem("user"));
-    Request.findOne({ _id: id }, function(err, reque) {
+    Request.findOne({ _id: id }, function (err, reque) {
         if (err) console.log("Error at profile requets");
         else {
             reque.status = 1;
             reque.save();
-            Request.find({ owner_id: a._id }, function(err, reque) {
+            Request.find({ owner_id: a._id }, function (err, reque) {
                 if (err) console.log("Error at profile requets");
                 else {
                     localStorage.setItem("requests", JSON.stringify(reque));
@@ -289,54 +289,59 @@ app.get("/check_request/:id", function(req, res) {
     });
 });
 
-app.get("/delete_request/:id", function(req, res) {
+app.get("/delete_request/:id", function (req, res) {
     var id = req.params.id;
-    Request.deleteOne({ _id: id }).then(function() {
-        Request.find({ owner_id: a._id }, function(err, reque) {
+    Request.deleteOne({ _id: id }).then(function () {
+        Request.find({ owner_id: a._id }, function (err, reque) {
             if (err) console.log("Error at profile requets");
             else {
                 localStorage.setItem("requests", JSON.stringify(reque));
                 res.redirect("/profile");
             }
         });
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log("Error at delete request");
     });
 });
 
-app.get("/adminproduct", function(req, res) {
-    Product.find({}, function(err, data) {
-        if (err) console.log("error at get products route admin");
-        else {
-            res.render("adminend", { data: data });
-        }
-    });
+app.get("/adminproduct",  (req, res)=> {
+    try {
+         Product.find({},  function (err, data) {
+            if (err) console.log("error at get products route admin");
+            else if(data){
+                res.render("adminend", { data: data });
+            }
+        });
+    } catch (error) { 
+            console.log(error.message);
+            res.redirect('/login');
+    }
 });
 
-app.get("/mytools", function(req, res) {
+app.get("/mytools", function (req, res) {
     var a = JSON.parse(localStorage.getItem("user"));
-    Tool.find({ id: a._id }, function(err, data) {
+    Tool.find({ id: a._id }, function (err, data) {
         if (err) console.log("Error at get mytools");
         else res.render("mytools", { data: data, user: a });
     });
 });
 
-app.get("/deletetool/:id", function(req, res) {
+app.get("/deletetool/:id", function (req, res) {
     var id = req.params.id;
-    Tool.deleteOne({ _id: id }).then(function() {
+    Tool.deleteOne({ _id: id }).then(function () {
         res.redirect("/mytools");
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log("Error at deletetool");
     });
 });
 
-app.get("/logout", function(req, res) {
+app.get("/logout", function (req, res) {
     localStorage.clear();
     res.redirect("/login");
 });
 
 
-app.post("/request1/:owner/:sender_name/:sender_phone/:tool_name", function(req, res) {
+app.post("/request1/:owner/:sender_name/:sender_phone/:tool_name", function (req, res) {
     var owner = req.params.owner;
     var sender_name = req.params.sender_name;
     var sender_phone = req.params.sender_phone;
@@ -372,7 +377,7 @@ app.post("/request1/:owner/:sender_name/:sender_phone/:tool_name", function(req,
     });
     new_request.save();
     var a1 = JSON.parse(localStorage.getItem("user"));
-    Request.find({ owner_id: a1._id }, function(err, reque) {
+    Request.find({ owner_id: a1._id }, function (err, reque) {
         if (err) console.log("Error at profile requets");
         else {
             localStorage.setItem("requests", JSON.stringify(reque));
@@ -382,7 +387,7 @@ app.post("/request1/:owner/:sender_name/:sender_phone/:tool_name", function(req,
 });
 
 
-app.post("/signup", function(req, res) {
+app.post("/signup", function (req, res) {
     const user = new Farmer({
         name: req.body.name,
         mail: req.body.mail,
@@ -412,7 +417,7 @@ app.post("/signup", function(req, res) {
     res.redirect("/login");
 });
 
-app.post("/addproduct", function(req, res) {
+app.post("/addproduct", function (req, res) {
     console.log(req.body);
     const ins = new Product({
         name: req.body.name,
@@ -423,7 +428,7 @@ app.post("/addproduct", function(req, res) {
     res.redirect("/adminproduct");
 });
 
-app.post("/addtool", function(req, res) {
+app.post("/addtool", function (req, res) {
     var data = JSON.parse(localStorage.getItem("user"));
     const ins = new Tool({
         name: req.body.name,
@@ -437,14 +442,15 @@ app.post("/addtool", function(req, res) {
     res.redirect("/mytools");
 });
 
-app.post("/login", function(req, res) {
+app.post("/login", function (req, res) {
     if (req.body.mail == "admin@gmail.com" && req.body.password == "we3")
         res.redirect("/adminproduct");
-    Farmer.findOne({ mail: req.body.mail, password: req.body.password }, function(err, data) {
+    else{
+    Farmer.findOne({ mail: req.body.mail, password: req.body.password }, function (err, data) {
         if (err) console.log("Error in login");
         else if (data) {
             localStorage.setItem("user", JSON.stringify(data));
-            Request.find({ owner_id: data._id }, function(err, reque) {
+            Request.find({ owner_id: data._id }, function (err, reque) {
                 if (err) console.log("Error at profile requets");
                 else {
                     localStorage.setItem("requests", JSON.stringify(reque));
@@ -456,9 +462,10 @@ app.post("/login", function(req, res) {
             });
         } else res.redirect("/login");
     });
+    }
 });
 
-app.post("/search_crop", function(req, res) {
+app.post("/search_crop", function (req, res) {
     if (req.body.crop_name == "") {
         res.redirect("/product");
     }
@@ -475,7 +482,7 @@ app.post("/search_crop", function(req, res) {
     var min = kir.getMinutes();
     var city = "Visakhapatnam";
     var vinee = JSON.parse(localStorage.getItem("user"));
-    Product.find({ name: req.body.crop_name }, function(err, data1) {
+    Product.find({ name: req.body.crop_name }, function (err, data1) {
         if (err) console.log("Error at Search crop post route");
         else {
             const apiKey = "ec9b79c4c63c06534a519841060b102c";
@@ -493,11 +500,11 @@ app.post("/search_crop", function(req, res) {
     });
 });
 
-app.post("/search_admincrop", function(req, res) {
+app.post("/search_admincrop", function (req, res) {
     if (req.body.crop_name == "") {
         res.redirect("/adminproduct");
     }
-    Product.find({ name: req.body.crop_name }, function(err, data) {
+    Product.find({ name: req.body.crop_name }, function (err, data) {
         if (err) console.log("Error at Search admin crop post route");
         else {
             res.render("adminend", { data: data });
@@ -505,29 +512,29 @@ app.post("/search_admincrop", function(req, res) {
     });
 });
 
-app.post("/search_tool", function(req, res) {
+app.post("/search_tool", function (req, res) {
     if (req.body.tool_name == "") {
         res.redirect("/mytools");
     }
     var vinee = JSON.parse(localStorage.getItem("user"));
-    Tool.find({ name: req.body.tool_name, id: vinee._id }, function(err, data) {
+    Tool.find({ name: req.body.tool_name, id: vinee._id }, function (err, data) {
         if (err) console.log("Error at search tool route");
         else res.render("mytools", { data: data });
     });
 });
 
-app.post("/search_tool/hire", function(req, res) {
+app.post("/search_tool/hire", function (req, res) {
     if (req.body.tool_name == "") {
         res.redirect("/hiretools");
     }
     var user = JSON.parse(localStorage.getItem("user"));
-    Tool.find({ name: req.body.tool_name, id: { $ne: user._id } }, function(err, data) {
+    Tool.find({ name: req.body.tool_name, id: { $ne: user._id } }, function (err, data) {
         if (err) console.log("Error at search tool route");
         else res.render("hiretools", { data: data, user: user });
     });
 });
 
-app.post("/addproduct", function(req, res) {
+app.post("/addproduct", function (req, res) {
     console.log(req.body);
     const prod = new Product({
         name: req.body.name,
@@ -538,9 +545,9 @@ app.post("/addproduct", function(req, res) {
     res.redirect("/adminproduct");
 });
 
-app.post("/updateproduct/:id", function(req, res) {
+app.post("/updateproduct/:id", function (req, res) {
     var id = req.params.id;
-    Product.findOne({ _id: id }, function(err, data) {
+    Product.findOne({ _id: id }, function (err, data) {
         if (err) console.log("error in product update");
         else {
             data.price = req.body.price;
@@ -550,10 +557,10 @@ app.post("/updateproduct/:id", function(req, res) {
     });
 });
 
-app.post("/updatetool/:id", function(req, res) {
+app.post("/updatetool/:id", function (req, res) {
     var id = req.params.id;
     console.log(id);
-    Tool.updateOne({ _id: id }, { price: req.body.price }, function(err, data) {
+    Tool.updateOne({ _id: id }, { price: req.body.price }, function (err, data) {
         if (err) console.log("error in product update");
         else {
             res.redirect("/mytools");
@@ -561,14 +568,14 @@ app.post("/updatetool/:id", function(req, res) {
     });
 });
 
-app.post("/search_user", function(req, res) {
+app.post("/search_user", function (req, res) {
     if (req.body.cl == "")
         res.redirect("/companyend");
-    Farmer.find({ $or: [{ City: req.body.cl }, { p_name: req.body.cl }] }, function(err, data) {
+    Farmer.find({ $or: [{ City: req.body.cl }, { p_name: req.body.cl }] }, function (err, data) {
         if (err) console.log("Error at search user in company end");
         else {
             var user = JSON.parse(localStorage.getItem("user"));
-            Request.find({ sender_phone: user.phone }, function(err, reque) {
+            Request.find({ sender_phone: user.phone }, function (err, reque) {
                 if (err) console.log("Error at cmp requests");
                 else res.render("companyend", { data: data, reque: reque, user: user });
             });
@@ -576,10 +583,10 @@ app.post("/search_user", function(req, res) {
     })
 });
 
-app.post("/update", function(req, res) {
+app.post("/update", function (req, res) {
     var user = JSON.parse(localStorage.getItem("user"));
     console.log(req.body);
-    Farmer.findOne({ _id: user._id }, function(err, data) {
+    Farmer.findOne({ _id: user._id }, function (err, data) {
         if (err) console.log("error at update details");
         else {
             data.name = req.body.name;
@@ -595,7 +602,7 @@ app.post("/update", function(req, res) {
             data.pin = req.body.pin;
             data.country = req.body.country;
             data.save();
-            Farmer.findOne({ _id: user._id }, function(err, data) {
+            Farmer.findOne({ _id: user._id }, function (err, data) {
                 if (err) console.log("error at update details of farmer 2")
                 else {
                     localStorage.setItem("user", JSON.stringify(data));
@@ -606,10 +613,10 @@ app.post("/update", function(req, res) {
     })
 });
 
-app.post("/update1", function(req, res) {
+app.post("/update1", function (req, res) {
     var user = JSON.parse(localStorage.getItem("user"));
     console.log(req.body);
-    Farmer.findOne({ _id: user._id }, function(err, data) {
+    Farmer.findOne({ _id: user._id }, function (err, data) {
         if (err) console.log("error at update details");
         else {
             data.p_name = req.body.pname;
@@ -621,7 +628,7 @@ app.post("/update1", function(req, res) {
             data.f_quantity = req.body.fquantity;
             data.f_status = req.body.fstatus;
             data.save();
-            Farmer.findOne({ _id: user._id }, function(err, data) {
+            Farmer.findOne({ _id: user._id }, function (err, data) {
                 if (err) console.log("error at update details of farmer 2")
                 else {
                     localStorage.setItem("user", JSON.stringify(data));
